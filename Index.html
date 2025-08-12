@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sport Visual Maker — v1.1</title>
+<meta name="description" content="Génère des affiches de match, cartes style Panini et miniatures YouTube. Version prête à vendre."/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<header class="topbar">
+<div class="brand">
+<div class="logo">⚽</div>
+<div class="title">
+<h1>Sport Visual Maker</h1>
+<p>Affiches · Cartes · Miniatures — export PNG HD</p>
+</div>
+</div>
+<div class="actions">
+<!-- Remplace ce lien par ton Payment Link Stripe -->
+<a id="orderBtn" class="secondary" href="PASTE_YOUR_STRIPE_LINK" target="_blank" rel="noopener">Commander</a>
+<button id="exportBtn" class="primary">Exporter en PNG</button>
+</div>
+</header>
+
+<main class="layout">
+<aside class="controls">
+<section>
+<label for="template">Modèle</label>
+<select id="template">
+<option value="poster">Affiche de match (1080×1350)</option>
+<option value="card">Carte style Panini (1080×1080)</option>
+<option value="thumb">Miniature YouTube (1280×720)</option>
+</select>
+</section>
+
+<section class="grid-2">
+<div>
+<label for="primaryColor">Couleur principale</label>
+<input type="color" id="primaryColor" value="#0d6efd"/>
+</div>
+<div>
+<label for="accentColor">Couleur d'accent</label>
+<input type="color" id="accentColor" value="#f8d94e"/>
+</div>
+</section>
+
+<section>
+<label for="bgStyle">Arrière-plan</label>
+<select id="bgStyle">
+<option value="gradient">Dégradé</option>
+<option value="stripes">Bandes dynamiques</option>
+<option value="grid">Grille</option>
+<option value="none">Uni</option>
+</select>
+</section>
+
+<section>
+<h3>Textes</h3>
+<label for="headline">Titre principal</label>
+<input id="headline" type="text" placeholder="El Clásico — 21:00"/>
+<div class="grid-2">
+<div>
+<label for="sub1">Sous-titre 1</label>
+<input id="sub1" type="text" placeholder="Real Madrid"/>
+</div>
+<div>
+<label for="sub2">Sous-titre 2</label>
+<input id="sub2" type="text" placeholder="FC Barcelona"/>
+</div>
+</div>
+<label for="meta">Infos (date, lieu, compétition...)</label>
+<input id="meta" type="text" placeholder="Dim. 15 sept · LaLiga · Bernabéu"/>
+</section>
+
+<section>
+<h3>Images</h3>
+<div class="grid-2">
+<div>
+<label for="playerImage">Photo joueur</label>
+<input id="playerImage" type="file" accept="image/*"/>
+</div>
+<div>
+<label for="teamLogo">Logo équipe</label>
+<input id="teamLogo" type="file" accept="image/*"/>
+</div>
+</div>
+<div class="grid-2">
+<div>
+<label for="imgScale">Taille photo</label>
+<input id="imgScale" type="range" min="0.2" max="2" step="0.01" value="1"/>
+</div>
+<div>
+<label for="imgY">Verticale</label>
+<input id="imgY" type="range" min="-300" max="300" step="1" value="0"/>
+</div>
+</div>
+</section>
+
+<section>
+<h3>Options</h3>
+<div class="grid-2">
+<div>
+<label for="noise">Texture</label>
+<input id="noise" type="checkbox" checked/>
+</div>
+<div>
+<label for="frame">Cadre</label>
+<input id="frame" type="checkbox"/>
+</div>
+</div>
+<label for="watermark">Filigrane</label>
+<input id="watermark" type="text" placeholder="@CrazyAbout · sportvisual.app"/>
+</section>
+
+<section>
+<h3>Présets rapides</h3>
+<div class="presets">
+<button class="chip" data-preset="madrid">Real vs Barça</button>
+<button class="chip" data-preset="psg">PSG vs OM</button>
+<button class="chip" data-preset="nba">NBA Finals</button>
+<button class="chip" data-preset="yt">YouTube Bold</button>
+</div>
+</section>
+
+<section>
+<h3>Commander un visuel</h3>
+<p class="help">Clique sur <b>Commander</b> (en haut à droite) pour le paiement sécurisé.
+Après paiement, envoie tes éléments par email : <a href="mailto:tonemail@example.com">tonemail@example.com</a>.</p>
+</section>
+</aside>
+
+<section class="canvas-wrap">
+<canvas id="canvas"></canvas>
+<div class="hint">Astuce : charge une photo joueur et un logo, ajuste la taille, puis clique « Exporter ».</div>
+</section>
+</main>
+
+<footer class="foot">
+<p>© 2025 Sport Visual Maker — v1.1. Créé avec ❤️ pour les créateurs de sport.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
